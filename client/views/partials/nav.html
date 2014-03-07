@@ -1,11 +1,23 @@
 <template name="nav">
   <nav class="navbar navbar-inverse">
-    <a class="navbar-brand" href="{{pathFor 'home'}}">Invoisir</a>
-    
-    <p class="welcome-msg navbar-text">Oopsie, you have no invoice items yet! </p>
-    <a href="{{pathFor 'invoiceNew'}}" class="btn btn-primary navbar-btn"><span class="glyphicon glyphicon-plus"></span> Create invoice</button>
-    
-    {{loginButtons}}
+    <div class="container-fluid">
 
+      <div class="navbar-header">
+        <a class="navbar-brand" href="{{pathFor 'home'}}">Invoisir</a>
+      </div>
+      <div class="collapse navbar-collapse">
+        
+        {{#if currentUser }}
+
+        <p class="welcome-msg navbar-text">Oopsie, you have no invoice items yet! </p>
+        <a href="{{pathFor 'invoiceNew'}}" class="btn btn-primary navbar-btn"><span class="glyphicon glyphicon-plus"></span> Create invoice</a>
+        
+        {{/if}}
+
+        <ul class="nav navbar-nav navbar-right">
+          {{loginButtons}}
+        </ul>
+      </div>
+    </div>
   </nav>
 </template>
